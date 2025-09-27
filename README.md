@@ -82,14 +82,31 @@ processor.process_media('input.mp4', 'output.mp4', effects=['chromatic', 'hologr
 
 ## Examples
 
-### Sample Outputs
+### Running the Examples
 
-The following sample outputs demonstrate different effect intensities:
+The repository includes a sample image at `assets/samples/test_input.jpg`. After installation, you can generate sample outputs by running:
 
-- **Normal Intensity**: [example_normal.jpg](output/example_normal.jpg)
-- **Intense Effects**: [example_intense.jpg](output/example_intense.jpg)  
-- **Subtle Effects**: [example_subtle.jpg](output/example_subtle.jpg)
-- **Animated GIF**: [test_output.gif](output/test_output.gif)
+```bash
+# Run the example script to generate sample outputs
+cd examples/
+python3 example_usage.py
+
+# Or use the test script for video processing
+python3 test_video_processing.py
+
+# Process the sample image directly
+python3 -c "
+from src.vaporwave_processor import VaporwaveProcessor
+processor = VaporwaveProcessor(intensity=1.0)
+processor.process_media('assets/samples/test_input.jpg', 'output/sample_output.jpg')
+"
+```
+
+This will create sample files in the `output/` directory demonstrating:
+- **Normal Intensity Effects**: Moderate vaporwave styling
+- **Intense Effects**: Heavy distortion and glow effects  
+- **Subtle Effects**: Light retro styling
+- **Video/GIF Processing**: Animated content with effects
 
 ## Supported Formats
 
@@ -127,9 +144,15 @@ effect_processor/
 ├── launch_gui.sh                 # GUI launcher script
 ├── examples/
 │   └── example_usage.py          # Usage examples
-├── output/                       # Generated output files
+├── assets/
+│   └── samples/                  # Sample input files
 ├── requirements.txt              # Python dependencies
+├── pyproject.toml               # Project configuration
 └── README.md                     # This file
+
+# Generated at runtime:
+├── output/                       # Generated output files (gitignored)
+└── venv/                        # Virtual environment (gitignored)
 ```
 
 ## License
