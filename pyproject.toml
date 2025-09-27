@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vaporwave-processor"
+version = "1.0.0"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+description = "A Python library for applying vaporwave holographic 3D effects"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["vaporwave", "image-processing", "video-effects", "holographic", "3d-effects"]
+dependencies = [
+    "opencv-python>=4.9.0.80",
+    "numpy>=1.26.0",
+    "Pillow>=10.2.0",
+    "imageio>=2.34.0",
+    "imageio-ffmpeg>=0.4.9",
+    "tqdm>=4.66.1",
+    "scipy>=1.11.4",
+    "scikit-image>=0.22.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/vaporwave-processor"
+Repository = "https://github.com/yourusername/vaporwave-processor.git"
+Issues = "https://github.com/yourusername/vaporwave-processor/issues"
+
+[project.scripts]
+vaporwave = "vaporwave_processor:main"
+vaporwave-gui = "gui_app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+docs = [
+    "sphinx>=5.0",
+    "sphinx-rtd-theme>=1.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
