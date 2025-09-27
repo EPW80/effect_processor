@@ -65,6 +65,19 @@ processor = VaporwaveProcessor(intensity=1.5)
 processor.process_media("input.jpg", "output.jpg", effects=['chromatic', 'neon'])
 ```
 
+## Examples
+
+### Sample Outputs
+
+**Normal Intensity Effect:**
+![Normal Intensity](output/example_normal.jpg)
+
+**Intense Effect:**
+![Intense Effect](output/example_intense.jpg)
+
+**Animated GIF Processing:**
+![Animated Output](output/test_output.gif)
+
 ## Requirements
 
 - Python 3.9+
