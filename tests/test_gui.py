@@ -7,9 +7,8 @@ require a display are skipped.
 
 from __future__ import annotations
 
-import sys
 from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -282,7 +281,10 @@ class TestGUILogic:
     def test_output_path_generation(self) -> None:
         """Test that output path is correctly generated from input."""
         input_path = Path("/path/to/image.jpg")
-        output_path = input_path.parent / f"{input_path.stem}_vaporwave{input_path.suffix}"
+        output_path = (
+            input_path.parent
+            / f"{input_path.stem}_vaporwave{input_path.suffix}"
+        )
         assert str(output_path) == "/path/to/image_vaporwave.jpg"
 
     def test_output_directory_creation_logic(self) -> None:
