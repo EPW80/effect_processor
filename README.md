@@ -2,7 +2,8 @@
 
 A Python library for applying vaporwave holographic 3D effects to images, videos, and GIFs.
 
-![Demo](demo.gif)
+[Demo](demo.gif)
+![Original](epwnightshade.png)
 ![Example Output](epwnightshade_vaporwave.png)
 
 ## Features
