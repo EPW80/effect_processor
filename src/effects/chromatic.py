@@ -1,21 +1,38 @@
-"""
-Chromatic aberration effect implementation
+"""Chromatic aberration effect implementation.
+
+This module provides the chromatic aberration effect that simulates
+the color fringing seen in old camera lenses.
 """
 
+from __future__ import annotations
+
 import numpy as np
+
 from .base import BaseEffect
 
 
 class ChromaticAberrationEffect(BaseEffect):
-    """Chromatic aberration effect that creates RGB color separation."""
+    """Chromatic aberration effect that creates RGB color separation.
+
+    This effect shifts the red and blue color channels in opposite directions,
+    creating the distinctive "color fringing" associated with cheap optics.
+    """
 
     @property
     def name(self) -> str:
+        """Return the effect name."""
         return "chromatic"
 
     def apply(self, image: np.ndarray) -> np.ndarray:
-        """Apply chromatic aberration effect."""
-        self._log("Applying chromatic aberration...")
+        """Apply chromatic aberration effect.
+
+        Args:
+            image: Input image as numpy array (BGR format).
+
+        Returns:
+            Image with RGB channels shifted to create color separation.
+        """
+        self._log_apply()
 
         # Get image dimensions
         _, width = image.shape[:2]

@@ -1,21 +1,38 @@
-"""
-VHS distortion effect implementation
+"""VHS distortion effect implementation.
+
+This module provides the VHS effect that simulates the visual artifacts
+and degradation of analog video tape recordings.
 """
 
+from __future__ import annotations
+
 import numpy as np
+
 from .base import BaseEffect
 
 
 class VHSEffect(BaseEffect):
-    """VHS effect that creates vintage video tape distortion and artifacts."""
+    """VHS effect that creates vintage video tape distortion and artifacts.
+
+    This effect adds horizontal line distortion, noise, color bleeding,
+    and contrast reduction to simulate VHS tape degradation.
+    """
 
     @property
     def name(self) -> str:
+        """Return the effect name."""
         return "vhs"
 
     def apply(self, image: np.ndarray) -> np.ndarray:
-        """Apply VHS distortion effect."""
-        self._log("Applying VHS effect...")
+        """Apply VHS distortion effect.
+
+        Args:
+            image: Input image as numpy array (BGR format).
+
+        Returns:
+            Image with VHS-style distortion and noise.
+        """
+        self._log_apply()
 
         result = image.copy().astype(np.float32)
         height, width = result.shape[:2]

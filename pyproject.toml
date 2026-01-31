@@ -4,29 +4,46 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vaporwave-processor"
-version = "1.0.0"
+version = "1.2.0"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+    {name = "Erik Williams", email = "erikwilliams@example.com"},
 ]
-description = "A Python library for applying vaporwave holographic 3D effects"
+maintainers = [
+    {name = "Erik Williams", email = "erikwilliams@example.com"},
+]
+description = "A Python library for applying vaporwave holographic 3D effects to images, videos, and GIFs"
 readme = "README.md"
 license = {text = "MIT"}
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Topic :: Multimedia :: Graphics",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
     "Topic :: Multimedia :: Video",
+    "Topic :: Multimedia :: Video :: Conversion",
     "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
 ]
-keywords = ["vaporwave", "image-processing", "video-effects", "holographic", "3d-effects"]
+keywords = [
+    "vaporwave",
+    "image-processing",
+    "video-effects",
+    "holographic",
+    "3d-effects",
+    "retro",
+    "aesthetic",
+    "glitch-art",
+    "chromatic-aberration",
+    "vhs-effect",
+]
 dependencies = [
     "opencv-python>=4.9.0.80",
     "numpy>=1.26.0",
@@ -36,15 +53,19 @@ dependencies = [
     "tqdm>=4.66.1",
     "scipy>=1.11.4",
     "scikit-image>=0.22.0",
+    "tomli>=2.0.0; python_version < '3.11'",
+    "customtkinter>=5.2.0",
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/vaporwave-processor"
-Repository = "https://github.com/yourusername/vaporwave-processor.git"
-Issues = "https://github.com/yourusername/vaporwave-processor/issues"
+Homepage = "https://github.com/EPW80/effect_processor"
+Documentation = "https://github.com/EPW80/effect_processor#readme"
+Repository = "https://github.com/EPW80/effect_processor.git"
+Changelog = "https://github.com/EPW80/effect_processor/blob/main/CHANGELOG.md"
+Issues = "https://github.com/EPW80/effect_processor/issues"
 
 [project.scripts]
-vaporwave = "vaporwave_processor:main"
+vaporwave = "src.vaporwave_processor:main"
 vaporwave-gui = "gui_app:main"
 
 [tool.setuptools.packages.find]
@@ -57,21 +78,64 @@ where = ["src"]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
-    "black>=23.0",
-    "flake8>=6.0",
+    "ruff>=0.8.0",
     "mypy>=1.0",
+    "pre-commit>=3.0",
 ]
 docs = [
     "sphinx>=5.0",
     "sphinx-rtd-theme>=1.0",
 ]
 
-[tool.black]
+[tool.ruff]
 line-length = 88
-target-version = ['py39']
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["vaporwave_processor"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
 
 [tool.mypy]
-python_version = "3.9"
-warn_return_any = true
+python_version = "3.10"
+warn_return_any = false
 warn_unused_configs = true
 disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["cv2.*", "imageio.*", "scipy.*", "skimage.*"]
+ignore_missing_imports = true
+ignore_errors = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+    "--cov=src",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]

@@ -1,21 +1,38 @@
-"""
-Holographic 3D effect implementation
+"""Holographic 3D effect implementation.
+
+This module provides the holographic effect that creates rainbow
+interference patterns reminiscent of holographic stickers.
 """
 
+from __future__ import annotations
+
 import numpy as np
+
 from .base import BaseEffect
 
 
 class HolographicEffect(BaseEffect):
-    """Holographic 3D effect that creates rainbow interference patterns."""
+    """Holographic 3D effect that creates rainbow interference patterns.
+
+    This effect uses wave patterns and hue shifting to create the
+    characteristic rainbow shimmer of holographic materials.
+    """
 
     @property
     def name(self) -> str:
+        """Return the effect name."""
         return "holographic"
 
     def apply(self, image: np.ndarray) -> np.ndarray:
-        """Apply holographic 3D effect using vectorized operations."""
-        self._log("Applying holographic effect...")
+        """Apply holographic 3D effect using vectorized operations.
+
+        Args:
+            image: Input image as numpy array (BGR format).
+
+        Returns:
+            Image with holographic rainbow interference pattern.
+        """
+        self._log_apply()
 
         height, width = image.shape[:2]
         result = image.copy().astype(np.float32)
