@@ -285,7 +285,10 @@ class VaporwaveGUI(ctk.CTk):
         filename = filedialog.askopenfilename(
             title="Select Input File",
             filetypes=[
-                ("All Media", "*.jpg *.jpeg *.png *.gif *.mp4 *.avi *.mov *.mkv *.webp"),
+                (
+                    "All Media",
+                    "*.jpg *.jpeg *.png *.gif *.mp4 *.avi *.mov *.mkv *.webp",
+                ),
                 ("Images", "*.jpg *.jpeg *.png *.webp *.bmp *.tiff"),
                 ("Videos", "*.mp4 *.avi *.mov *.mkv *.wmv"),
                 ("GIFs", "*.gif"),
@@ -424,7 +427,8 @@ class VaporwaveGUI(ctk.CTk):
             )
             messagebox.showinfo(
                 "Success",
-                f"🎉 Processing complete!\n\nOutput saved to:\n{self.output_file.get()}",
+                f"🎉 Processing complete!\n\n"
+                f"Output saved to:\n{self.output_file.get()}",
             )
         else:
             logger.error("Processing failed: %s", error)
