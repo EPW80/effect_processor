@@ -41,7 +41,7 @@ def _get_env_value(key: str, default: T, type_hint: Any) -> T:
     Args:
         key: The configuration key (will be prefixed with ENV_PREFIX).
         default: The default value if not set.
-        type_hint: The expected type for conversion (can be a type or string annotation).
+        type_hint: The expected type for conversion (type or string).
 
     Returns:
         The value from environment or the default.
