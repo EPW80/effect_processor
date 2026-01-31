@@ -53,6 +53,7 @@ class TestModuleImports:
     def test_customtkinter_import(self) -> None:
         """Test that customtkinter can be imported."""
         import customtkinter as ctk
+
         assert ctk is not None
 
     def test_gui_class_exists(self) -> None:
@@ -68,6 +69,7 @@ class TestModuleImports:
 # Skip tests that require a display
 try:
     import tkinter
+
     tkinter.Tk().destroy()
     HAS_DISPLAY = True
 except Exception:
@@ -282,8 +284,7 @@ class TestGUILogic:
         """Test that output path is correctly generated from input."""
         input_path = Path("/path/to/image.jpg")
         output_path = (
-            input_path.parent
-            / f"{input_path.stem}_vaporwave{input_path.suffix}"
+            input_path.parent / f"{input_path.stem}_vaporwave{input_path.suffix}"
         )
         assert str(output_path) == "/path/to/image_vaporwave.jpg"
 

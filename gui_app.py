@@ -31,14 +31,14 @@ ctk.set_default_color_theme("blue")
 
 # Vaporwave color palette
 COLORS = {
-    "primary": "#FF00FF",       # Magenta
-    "secondary": "#00FFFF",     # Cyan
-    "accent": "#FF6AD5",        # Pink
-    "success": "#00FF9F",       # Neon green
-    "warning": "#FFB347",       # Orange
-    "error": "#FF6B6B",         # Red
-    "bg_dark": "#1A1A2E",       # Dark purple
-    "bg_medium": "#16213E",     # Medium purple
+    "primary": "#FF00FF",  # Magenta
+    "secondary": "#00FFFF",  # Cyan
+    "accent": "#FF6AD5",  # Pink
+    "success": "#00FF9F",  # Neon green
+    "warning": "#FFB347",  # Orange
+    "error": "#FF6B6B",  # Red
+    "bg_dark": "#1A1A2E",  # Dark purple
+    "bg_medium": "#16213E",  # Medium purple
 }
 
 
