@@ -102,8 +102,7 @@ class TestVaporwaveProcessorEffects:
 
         # Check warning was logged
         assert any(
-            "unknown_effect" in record.message.lower()
-            for record in caplog.records
+            "unknown_effect" in record.message.lower() for record in caplog.records
         )
 
     def test_effect_order_matters(self, sample_image: np.ndarray) -> None:
@@ -194,9 +193,7 @@ class TestImageProcessing:
         output_path = temp_dir / "output.jpg"
 
         with pytest.raises(ProcessingError):
-            processor.process_media(
-                str(temp_dir / "nonexistent.jpg"), str(output_path)
-            )
+            processor.process_media(str(temp_dir / "nonexistent.jpg"), str(output_path))
 
 
 class TestVideoProcessing:
@@ -330,9 +327,7 @@ class TestErrorHandling:
 
         processor = VaporwaveProcessor()
         with pytest.raises(ProcessingError):
-            processor.process_media(
-                "nonexistent.jpg", str(temp_dir / "output.jpg")
-            )
+            processor.process_media("nonexistent.jpg", str(temp_dir / "output.jpg"))
 
     def test_empty_effects_list(self, sample_image_file: Path, temp_dir: Path) -> None:
         """Test handling of empty effects list."""

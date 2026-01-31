@@ -78,9 +78,7 @@ def get_effect_class(name: EffectName | str) -> type[BaseEffect]:
 
     if name not in EFFECT_REGISTRY:
         valid_names = ", ".join(EffectName.all())
-        raise ValueError(
-            f"Unknown effect: {name!r}. Valid effects are: {valid_names}"
-        )
+        raise ValueError(f"Unknown effect: {name!r}. Valid effects are: {valid_names}")
 
     return EFFECT_REGISTRY[name]
 

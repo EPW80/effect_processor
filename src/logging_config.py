@@ -18,8 +18,7 @@ LOGGER_NAME = "vaporwave_processor"
 CONSOLE_FORMAT = "%(levelname)s: %(message)s"
 DETAILED_FORMAT = "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
 FILE_FORMAT = (
-    "%(asctime)s | %(name)s | %(levelname)s | "
-    "%(filename)s:%(lineno)d | %(message)s"
+    "%(asctime)s | %(name)s | %(levelname)s | %(filename)s:%(lineno)d | %(message)s"
 )
 
 LogLevel = Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
