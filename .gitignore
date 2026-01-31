@@ -19,9 +19,9 @@ ENV/
 # Project specific
 output/
 *.mp4
-*.gif
+
 *.jpg
-*.png
+
 !examples/*
 !assets/samples/*
 
