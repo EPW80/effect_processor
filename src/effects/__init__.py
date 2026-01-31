@@ -20,6 +20,7 @@ else:
 
         pass
 
+
 from .base import BaseEffect
 from .chromatic import ChromaticAberrationEffect
 from .holographic import HolographicEffect
