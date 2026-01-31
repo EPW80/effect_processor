@@ -35,13 +35,13 @@ CONFIG_FILENAME = "vaporwave.toml"
 T = TypeVar("T")
 
 
-def _get_env_value(key: str, default: T, type_hint: type[T]) -> T:
+def _get_env_value(key: str, default: T, type_hint: Any) -> T:
     """Get a configuration value from environment variables.
 
     Args:
         key: The configuration key (will be prefixed with ENV_PREFIX).
         default: The default value if not set.
-        type_hint: The expected type for conversion.
+        type_hint: The expected type for conversion (can be a type or string annotation).
 
     Returns:
         The value from environment or the default.
